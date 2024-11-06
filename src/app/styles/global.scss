@@ -1,0 +1,23 @@
+.ant-form-item-label {
+  min-width: 150px;
+  display: flex;
+  justify-content: left;
+}
+
+.label-item{
+  min-width: 35px;
+}
+
+label.ant-form-item-required {
+  &::before {
+    content: "【必須】" !important;
+    position: absolute;
+    right: -40px;
+    top: 3px;
+    font-size: 12px !important;
+  }
+
+  &::after {
+    content: '' !important;
+  }
+}
