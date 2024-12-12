@@ -4,13 +4,13 @@
   justify-content: left;
 }
 
-.label-item{
+.label-item {
   min-width: 35px;
 }
 
 label.ant-form-item-required {
   &::before {
-    content: "【必須】" !important;
+    content: '【必須】' !important;
     position: absolute;
     right: -40px;
     top: 3px;
@@ -20,4 +20,9 @@ label.ant-form-item-required {
   &::after {
     content: '' !important;
   }
+}
+
+.swiper {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
