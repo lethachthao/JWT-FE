@@ -1,5 +1,5 @@
 'use client';
-import { ApiResponse, getUsers } from '@/app/api/userApi';
+import { ApiResponse, getUsers } from '@/api/userApi';
 import { useQuery } from '@tanstack/react-query';
 import { Modal, Pagination, Table, TableColumnsType } from 'antd';
 import { useState } from 'react';

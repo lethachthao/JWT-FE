@@ -1,16 +1,17 @@
 'use client';
 
+import { ICCart } from '@/icon/ICCart';
 import { Button, Image, Input, Select, Space } from 'antd';
 
 const HeaderPage = () => {
   const options = [
     {
       value: 'product',
-      label: 'Sản phẩm',
+      span: 'Sản phẩm',
     },
     {
       value: 'article',
-      label: 'Bài viết',
+      span: 'Bài viết',
     },
   ];
   return (
@@ -25,7 +26,16 @@ const HeaderPage = () => {
         <Select defaultValue="Sản phẩm" options={options} className="h-10" />
         <Input placeholder="Nhập từ khóa cần tìm kiếm..." className="h-10 " />
       </Space.Compact>
-      <Button className="bg-[#005ac6] text-white p-5">Đăng nhập</Button>
+      <Button className="bg-blue-800 text-white p-5">Đăng nhập</Button>
+      <div className="flex gap-2 ">
+        <div className="relative">
+          <ICCart height={30} width={30} />
+          <p className="absolute text-[8px] text-white top-[-7px] right-[-8px] bg-red-600 border border-red-600 rounded-full w-5 h-5 flex items-center justify-center">
+            10
+          </p>
+        </div>
+        <p className="text-xl">Giỏ Hàng</p>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,14 @@
-.ant-form-item-label {
+.ant-form-item-span {
   min-width: 150px;
   display: flex;
   justify-content: left;
 }
 
-.label-item {
+.span-item {
   min-width: 35px;
 }
 
-label.ant-form-item-required {
+span.ant-form-item-required {
   &::before {
     content: '【必須】' !important;
     position: absolute;

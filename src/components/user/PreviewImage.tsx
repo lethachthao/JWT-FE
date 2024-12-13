@@ -5,28 +5,27 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-import { DataImgBanner } from '@/mockData/ImageBanner';
 
-const Slider = () => {
+const PreviewImage = ({ images }: { images: string[] }) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       spaceBetween={50}
-      slidesPerView={1}
+      slidesPerView={8}
       navigation
       pagination={{ clickable: true }}
       autoplay={{ delay: 3000 }}
-      className="px-20 "
       loop={true}
+      className="px-20"
     >
-      {DataImgBanner.map(item => (
-        <SwiperSlide key={item.id}>
+      {images.map((image, index) => (
+        <SwiperSlide key={index}>
           <Image
-            src={item.image}
-            alt={'fasdfsa'}
-            width={1920}
-            height={1080}
-            className="rounded-[30px]"
+            src={image}
+            alt={`Image ${index + 1}`}
+            width={75}
+            height={75}
+            className=""
           />
         </SwiperSlide>
       ))}
@@ -34,4 +33,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default PreviewImage;
