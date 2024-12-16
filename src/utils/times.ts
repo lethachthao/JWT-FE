@@ -1,21 +1,21 @@
 export const getListYear = () => {
   const yearToday = new Date().getFullYear();
-  const yearsArray: { value: string; label: string }[] | undefined = [];
+  const yearsArray: { value: string; span: string }[] | undefined = [];
 
   for (let year = 1940; year <= yearToday; year++) {
-    yearsArray.push({ value: year.toString(), label: year.toString() });
+    yearsArray.push({ value: year.toString(), span: year.toString() });
   }
 
   return yearsArray.reverse();
 };
 
 export const getListMonth = () => {
-  const monthsArray: { value: string; label: string }[] | undefined = [];
+  const monthsArray: { value: string; span: string }[] | undefined = [];
 
   for (let month = 1; month <= 12; month++) {
     // Chuyển đổi tháng thành chuỗi có 2 chữ số (01, 02, ..., 12)
     const monthStr = month.toString().padStart(2, '0');
-    monthsArray.push({ value: monthStr, label: monthStr });
+    monthsArray.push({ value: monthStr, span: monthStr });
   }
 
   return monthsArray;
@@ -47,7 +47,7 @@ export const getListDay = (year: string, month: string) => {
   const daysInMonth = getDaysInMonth(year, month);
 
   for (let day = 1; day <= daysInMonth; day++) {
-    daysArray.push({ value: day.toString(), label: day });
+    daysArray.push({ value: day.toString(), span: day });
   }
 
   return daysArray;

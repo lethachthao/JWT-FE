@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import Image from 'next/image';
-import { DataImgBanner } from '@/app/mockData/ImageBanner';
+import { DataImgBanner } from '@/mockData/ImageBanner';
 
 const Slider = () => {
   return (
@@ -17,6 +17,7 @@ const Slider = () => {
       pagination={{ clickable: true }}
       autoplay={{ delay: 3000 }}
       className="px-20 "
+      loop={true}
     >
       {DataImgBanner.map(item => (
         <SwiperSlide key={item.id}>

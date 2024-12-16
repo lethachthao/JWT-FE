@@ -1,16 +1,16 @@
 'use client';
 
-import { DataProduct } from '@/app/mockData/dataProduct';
+import { dataProduct } from '@/mockData/dataProduct';
 import { Image } from 'antd';
 import { useState } from 'react';
 
 const MenuPage = () => {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
   return (
-    <div className="flex font-bold gap-5 px-24 bg-[#e7e7e7] items-center relative">
+    <div className="flex font-bold gap-5 px-24 bg-gray-300 items-center relative">
       <p className="hover:bg-gray-400 px-3 py-1 cursor-pointer">Trang chủ</p>
       <div className=" flex">
-        {DataProduct.map(item => (
+        {dataProduct.map(item => (
           <div
             key={item.brand}
             onMouseEnter={() => setHoveredBrand(item.brand)} // Đặt trạng thái khi hover vào brand

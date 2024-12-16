@@ -16,17 +16,17 @@ const MenuPage = () => {
           {
             key: '1',
             icon: <UserOutlined />,
-            label: 'User Manager',
+            span: 'User Manager',
           },
           {
             key: '2',
             icon: <VideoCameraOutlined />,
-            label: 'Product',
+            span: 'Product',
           },
           {
             key: '3',
             icon: <UploadOutlined />,
-            label: 'nav 3',
+            span: 'nav 3',
           },
         ]}
       />

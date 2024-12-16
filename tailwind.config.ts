@@ -12,6 +12,9 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        'blue-50': '#17649a',
+        'red-50': '#dc2535',
+        'green-50': '#11985e',
       },
     },
   },
