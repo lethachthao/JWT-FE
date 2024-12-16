@@ -1,35 +1,26 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Import đúng cách
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
-import Image from 'next/image';
+import React from 'react';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 const PreviewImage = ({ images }: { images: string[] }) => {
+  // Chuyển đổi danh sách ảnh thành định dạng phù hợp với react-image-gallery
+  const galleryItems = images.map(image => ({
+    original: image,
+    thumbnail: image,
+  }));
+
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={50}
-      slidesPerView={8}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{ delay: 3000 }}
-      loop={true}
-      className="px-20"
-    >
-      {images.map((image, index) => (
-        <SwiperSlide key={index}>
-          <Image
-            src={image}
-            alt={`Image ${index + 1}`}
-            width={75}
-            height={75}
-            className=""
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="">
+      <ImageGallery
+        items={galleryItems}
+        showThumbnails={true} // Hiển thị ảnh thu nhỏ
+        showPlayButton={true} // Hiển thị nút phát slideshow
+        autoPlay={true} // Tự động phát
+        slideInterval={3000} // Thời gian giữa các slide
+        showNav={true} // Hiển thị nút điều hướng
+        infinite={true} // Lặp lại vô hạn
+      />
+    </div>
   );
 };
 
