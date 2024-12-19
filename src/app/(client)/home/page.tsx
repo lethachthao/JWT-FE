@@ -11,15 +11,19 @@ import 'swiper/css/autoplay';
 import Image from 'next/image';
 import MenuPage from '@/components/user/MenuPage';
 import ProductDisplay from '@/components/user/ProductDisplay';
-import Link from 'next/link';
 import Menucontent from '@/components/user/MenuContent';
+import VideoList from '@/components/user/EmbedYoutube';
+import LatestNews from '@/components/user/LatestNews';
+import Link from 'next/link';
+import Footer from '@/components/user/Foooter';
+import NewAndGuide from '@/components/user/NewsAndGuide';
 
 const Home = () => {
   return (
-    <div className="gap-3 flex flex-col">
+    <div className="gap-5 flex flex-col">
       <MenuPage />
       <Slider />
-      <div className="w-[1200px] max-w-full mx-auto">
+      <div className="w-[1200px] max-w-full mx-auto flex flex-col gap-6">
         <ProductDisplay title="Hàng mới về">
           <div className="">
             <Swiper
@@ -58,10 +62,13 @@ const Home = () => {
             </Swiper>
           </div>
         </ProductDisplay>
+        <LatestNews />
+        <VideoList />
       </div>
-      <div className="pb-40 w-[1200px] max-w-full mx-auto flex">
+      <div className="pb-10 w-[1200px] max-w-full mx-auto flex">
         <div className="w-1/5">
           <Menucontent />
+          <NewAndGuide />
         </div>
         <div className="w-4/5">
           {dataProduct.map(item => (
@@ -80,21 +87,23 @@ const Home = () => {
                   {dataProduct.map(item =>
                     item.products.map((product, index) => (
                       <SwiperSlide key={`${item.brand} - ${index}`}>
-                        <div className=" w-fit transform transition-transform duration-300 hover:translate-y-[-15px] hover:shadow-lg hover:z-10">
-                          <Image
-                            src={product.image}
-                            alt={'product'}
-                            width={299}
-                            height={299}
-                            className="rounded-t-lg border"
-                          />
-                          <p className="border h-16 text-sm px-3 w-full font-bold overflow-hidden text-ellipsis flex justify-center items-center">
-                            {product.name}
-                          </p>
-                          <p className="text-red-600 font-bold text-center border py-1 w-full">
-                            {product.price}đ
-                          </p>
-                        </div>
+                        <Link href={`/home/${product.id}`}>
+                          <div className=" w-fit transform transition-transform duration-300 hover:translate-y-[-15px] hover:shadow-lg hover:z-10">
+                            <Image
+                              src={product.image}
+                              alt={'product'}
+                              width={299}
+                              height={299}
+                              className="rounded-t-lg border"
+                            />
+                            <p className="border h-16 text-sm px-3 w-full font-bold overflow-hidden text-ellipsis flex justify-center items-center">
+                              {product.name}
+                            </p>
+                            <p className="text-red-600 font-bold text-center border py-1 w-full">
+                              {product.price}đ
+                            </p>
+                          </div>
+                        </Link>
                       </SwiperSlide>
                     ))
                   )}
@@ -113,6 +122,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
