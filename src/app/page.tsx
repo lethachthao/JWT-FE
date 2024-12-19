@@ -41,7 +41,7 @@ const Home = () => {
                       <div className=" w-fit transform transition-transform duration-300 hover:translate-y-[-15px] hover:shadow-lg hover:z-10">
                         <Image
                           src={product.image}
-                          alt={'fdasdf'}
+                          alt={'prodcut'}
                           width={299}
                           height={299}
                           className="rounded-t-lg border"

@@ -16,7 +16,6 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const params = useParams(); // Sử dụng useParams
   const { id } = params;
-  console.log(id);
 
   // Tìm sản phẩm và thương hiệu dựa trên id
   const result = dataProduct.find(item =>
@@ -47,7 +46,6 @@ const ProductDetail = () => {
       product,
       quantity,
     });
-    console.log('action: ', action);
     dispatch(action);
     success();
   };
