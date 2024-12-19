@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import lineClamp from '@tailwindcss/line-clamp';
 
 const config: Config = {
   content: [
@@ -13,11 +14,14 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         'blue-50': '#17649a',
+        'blue-100': '#1178f2',
         'red-50': '#dc2535',
         'green-50': '#11985e',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    lineClamp, // Sử dụng import thay vì require
+  ],
 };
 export default config;
