@@ -3,10 +3,10 @@ import './globals.css';
 import './styles/global.scss';
 import React from 'react';
 import QueryProvider from '../query/QueryProvider';
-import HeaderPage from '@/components/user/HeaderPage';
 import { persistor, store } from '@/redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import HeaderPage from '@/components/user/HeaderPage';
 export default function RootLayout({
   children,
 }: Readonly<{

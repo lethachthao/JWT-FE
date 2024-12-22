@@ -31,3 +31,29 @@ span.ant-form-item-required {
   margin-right: 20px !important;
   width: 225px !important;
 }
+
+// .ant-row {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.ant-col {
+  text-align: start !important;
+  width: 100% !important;
+}
+
+.ant-col-8 {
+  max-width: 25% !important;
+}
+
+.ant-col-16 {
+  width: 100% !important;
+}
+
+.ant-col-offset-8 {
+  margin-inline-start: 42% !important;
+}
+
+.ant-modal {
+  top: 17px !important;
+}

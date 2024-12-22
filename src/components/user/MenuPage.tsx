@@ -21,13 +21,13 @@ const MenuPage = () => {
             </p>
             {hoveredBrand === item.brand && (
               <div className="px-5 absolute left-0 bg-gray-500 text-black shadow-md rounded-md z-10 w-screen ">
-                <ul className="py-2 flex space-x-4 justify-between">
+                <ul className="py-2 flex space-x-4 justify-center">
                   {item.products.map((product, index) => (
                     <li
                       key={index}
                       className="px-4 py-2 hover:bg-gray-200 flex justify-between"
                     >
-                      <div className="items-center flex flex-col justify-center">
+                      <div className="items-center flex flex-col justify-center w-32">
                         <Image
                           src={product.image}
                           alt={product.name}
@@ -36,7 +36,9 @@ const MenuPage = () => {
                           className="mr-4 rounded"
                         />
                         <div>
-                          <p className="text-white">{product.name}</p>
+                          <p className="text-white text-xs text-center">
+                            {product.name}
+                          </p>
                         </div>
                       </div>
                     </li>

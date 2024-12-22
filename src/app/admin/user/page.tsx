@@ -1,8 +1,9 @@
 'use client';
 import { ApiResponse, getUsers } from '@/api/userApi';
 import { useQuery } from '@tanstack/react-query';
-import { Modal, Pagination, Table, TableColumnsType } from 'antd';
+import { Button, Pagination, Table, TableColumnsType } from 'antd';
 import { useState } from 'react';
+import FormUser from './form';
 
 interface DataType {
   key: React.Key;
@@ -12,8 +13,8 @@ interface DataType {
 }
 
 const UserPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1); // Duy trì trang hiện tại
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data, isLoading, isError } = useQuery<ApiResponse>({
     queryKey: ['users', currentPage],
@@ -21,7 +22,7 @@ const UserPage = () => {
   });
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page); // Cập nhật trang khi thay đổi
+    setCurrentPage(page); // Cập nhật trang khi thay đổ
   };
 
   const columns: TableColumnsType<DataType> = [
@@ -33,7 +34,7 @@ const UserPage = () => {
       title: 'Action',
       dataIndex: '',
       key: 'x',
-      render: () => <a onClick={showModal}>Update</a>,
+      render: () => <a>Update</a>,
     },
   ];
 
@@ -49,20 +50,15 @@ const UserPage = () => {
       role: user.role,
     })) || [];
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <div className="h-[calc(100%_-_4rem)]">
+      <Button
+        className="bg-blue-500 text-white font-semibold"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Tạo người dùng
+      </Button>
+      <FormUser open={isModalOpen} />
       <Table<DataType>
         columns={columns}
         dataSource={users}
@@ -75,16 +71,6 @@ const UserPage = () => {
         pageSize={data?.meta.itemsPerPage || 20}
         onChange={handlePageChange} // Cập nhật trang khi người dùng thay đổi
       />
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
     </div>
   );
 };
