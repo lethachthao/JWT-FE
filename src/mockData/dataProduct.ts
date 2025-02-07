@@ -1,5 +1,3 @@
-// import img1 from '../../public/images/a3.png'; // StaticImageData
-
 export const dataProduct = [
   {
     brand: 'Sony',

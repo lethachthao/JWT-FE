@@ -17,10 +17,12 @@ import LatestNews from '@/components/user/LatestNews';
 import Link from 'next/link';
 import Footer from '@/components/user/Foooter';
 import NewAndGuide from '@/components/user/NewsAndGuide';
+import HeaderPage from '@/components/user/HeaderPage';
 
 const Home = () => {
   return (
     <div className="gap-5 flex flex-col">
+      <HeaderPage />
       <MenuPage />
       <Slider />
       <div className="w-[1200px] max-w-full mx-auto flex flex-col gap-6">

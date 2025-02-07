@@ -6,7 +6,6 @@ import QueryProvider from '../query/QueryProvider';
 import { persistor, store } from '@/redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import HeaderPage from '@/components/user/HeaderPage';
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,7 +16,6 @@ export default function RootLayout({
       <body className="h-screen">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <HeaderPage />
             <QueryProvider>{children}</QueryProvider>
           </PersistGate>
         </Provider>

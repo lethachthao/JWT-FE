@@ -20,3 +20,29 @@ export interface DataProduct {
   banner: string;
   products: Product[];
 }
+
+export interface UserFormValues {
+  name: string;
+  email: string;
+  avatar: string | File;
+  password: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  avatar: RcFile;
+}
+
+export interface Banner {
+  id: string;
+  image: string;
+  title: string;
+}

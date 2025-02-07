@@ -1,6 +1,4 @@
 'use client';
-import React from 'react';
-
 const App: React.FC = () => {
   // const [collapsed, setCollapsed] = useState(false);
   // const {
