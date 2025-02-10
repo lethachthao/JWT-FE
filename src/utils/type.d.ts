@@ -43,6 +43,6 @@ export interface User {
 
 export interface Banner {
   id: string;
-  image: string;
+  image: string | File;
   title: string;
 }
