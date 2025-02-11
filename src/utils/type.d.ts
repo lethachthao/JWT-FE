@@ -31,7 +31,8 @@ export interface UserFormValues {
 export interface Category {
   id: string;
   name: string;
-  description: string;
+  logo: string | File;
+  banner: string | File;
 }
 
 export interface User {
