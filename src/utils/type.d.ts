@@ -5,13 +5,12 @@ export interface IPropsIcon {
 }
 
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   price: number;
   description: string;
-  image: string;
-  images: string[];
-  status: string;
+  image: string | File;
+  category_id: number;
 }
 
 export interface DataProduct {

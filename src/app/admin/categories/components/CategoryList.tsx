@@ -33,7 +33,6 @@ const CategoryList = () => {
   const [bannerFile, setBannerFile] = useState<UploadFile | null>(null);
 
   useEffect(() => {
-    console.log('Selected Banner:', selectedCategory); // Kiểm tra dữ liệu
     if (selectedCategory) {
       form.resetFields(); // Reset form trước khi đặt giá trị mới
       form.setFieldsValue({

@@ -4,7 +4,7 @@ import {
   deleteCategory,
   getCategories,
   updateCategory,
-} from './useCategories';
+} from './useCategory';
 import { Category } from '@/utils/type';
 import { message } from 'antd';
 
