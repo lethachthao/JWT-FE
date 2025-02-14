@@ -1,9 +1,10 @@
 import {
+  ProductOutlined,
   UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  UserSwitchOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
+import Link from 'next/link';
 
 const MenuPage = () => {
   return (
@@ -15,18 +16,23 @@ const MenuPage = () => {
         items={[
           {
             key: '1',
-            icon: <UserOutlined />,
-            span: 'User Manager',
+            icon: <UserSwitchOutlined />,
+            label: <Link href="/admin/users">Quản lí users</Link>,
           },
           {
             key: '2',
-            icon: <VideoCameraOutlined />,
-            span: 'Product',
+            icon: <ProductOutlined />,
+            label: <Link href="/admin/products">Quản lí Product</Link>,
           },
           {
             key: '3',
             icon: <UploadOutlined />,
-            span: 'nav 3',
+            label: <Link href="/admin/categories">Quản lí Category</Link>,
+          },
+          {
+            key: '4',
+            icon: <UploadOutlined />,
+            label: <Link href="/admin/banners">Quản lí Banner</Link>,
           },
         ]}
       />

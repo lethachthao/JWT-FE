@@ -26,36 +26,3 @@ export const createProduct = async (data: Product): Promise<Product> => {
   );
   return response.data;
 };
-
-// Hàm gọi API để cập nhật banner
-export const updateCategory = async (
-  id: string,
-  data: {
-    name: string;
-    price: number;
-    description: string;
-    image?: File | null; // Nếu không có hình ảnh, có thể bỏ qua trường này
-  }
-): Promise<Product> => {
-  // Tạo object JSON, loại bỏ image nếu không có
-  const requestData: Partial<Product> = {
-    id: id,
-    name: data.name,
-    price: data.price,
-    description: data.description,
-  };
-
-  if (data.image) {
-    requestData.image = data.image;
-  }
-
-  const response: AxiosResponse<Product> = await apiClient.put(
-    `/categories/${id}`,
-    requestData,
-    {
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
-
-  return response.data;
-};

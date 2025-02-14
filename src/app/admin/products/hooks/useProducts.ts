@@ -1,9 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import {
-  createProduct,
-  getProduct,
-  updateProduct,
-} from '../_services/productApi';
+import { createProduct, getProduct } from '../_services/productApi';
 import { Product } from '@/utils/type';
 import { message } from 'antd';
 
@@ -29,20 +25,4 @@ export const useCreateProduct = () => {
     },
   });
   return mutation;
-};
-
-export const useUpdateProduct = () => {
-  const queryClient = useQueryClient();
-
-  return useMutation({
-    mutationFn: (data: Product) => updateProduct(data),
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: ['products'] });
-      message.success('✅ Cập nhật Product thành công!');
-    },
-    onError: error => {
-      console.error(' Lỗi khi cập nhật Product:', error);
-      message.error('Lỗi khi cập nhật Product, vui lòng thử lại.');
-    },
-  });
 };
