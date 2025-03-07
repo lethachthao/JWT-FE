@@ -1,33 +1,31 @@
 'use client';
 import { useParams } from 'next/navigation'; // Thay thế useRouter
 import Menucontent from '@/components/user/MenuContent';
-import PreviewImage from '@/components/user/PreviewImage';
-import { dataProduct } from '@/mockData/dataProduct';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/slices/cartSlice';
-import { Button, message } from 'antd';
-import Image from 'next/image';
+import { Button, Image, message } from 'antd';
+import { useListProducts } from '../../hooks/useProducts';
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [messageApi, contextHolder] = message.useMessage();
-
+  const { data: products, isPending } = useListProducts();
   const dispatch = useDispatch();
-  const params = useParams(); // Sử dụng useParams
-  const { id } = params;
-  console.log(id);
+  const { id } = useParams(); // Lấy ID từ URL
 
-  // Tìm sản phẩm và thương hiệu dựa trên id
-  const result = dataProduct.find(item =>
-    item.products.some(product => product.id === Number(id))
-  );
-
-  if (!result) {
-    return <p>Sản phẩm không tồn tại</p>;
+  // Nếu đang tải dữ liệu
+  if (isPending) {
+    return <p>Đang tải sản phẩm...</p>;
   }
 
-  const product = result.products.find(product => product.id === Number(id));
+  // Kiểm tra nếu không có dữ liệu
+  if (!products) {
+    return <p>Không có dữ liệu sản phẩm</p>;
+  }
+
+  // Tìm sản phẩm theo ID
+  const product = products.find(product => product.id === Number(id));
 
   if (!product) {
     return <p>Sản phẩm không tồn tại</p>;
@@ -42,22 +40,16 @@ const ProductDetail = () => {
   };
 
   const handleAddToCart = () => {
-    const action = addToCart({
-      id: product.id,
-      product,
-      quantity,
-    });
-    console.log('action: ', action);
-    dispatch(action);
+    dispatch(addToCart({ id: product.id, product, quantity }));
     success();
   };
 
   const handleIncrease = () => {
-    setQuantity(prevQuantity => prevQuantity + 1); // Tăng số lượng
+    setQuantity(prev => prev + 1);
   };
 
   const handleDecrease = () => {
-    setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1)); // Giảm số lượng nhưng không nhỏ hơn 1
+    setQuantity(prev => (prev > 1 ? prev - 1 : 1));
   };
 
   return (
@@ -71,7 +63,14 @@ const ProductDetail = () => {
           <div className="flex gap-5 w-full">
             {/* Div 1 */}
             <div className="flex-shrink-0 w-[500px]">
-              <PreviewImage images={product.images} />
+              {/* <PreviewImage images={product.images} /> */}
+              <Image
+                src={typeof product.image === 'string' ? product.image : ''}
+                alt={product.name}
+                width={299}
+                height={299}
+                className="rounded-t-lg border"
+              />
             </div>
 
             {/* Div 2 */}
@@ -89,18 +88,18 @@ const ProductDetail = () => {
                 </span>
                 {product.price}đ
               </p>
-              <p className="text-xl text-green-50 font-bold">
+              {/* <p className="text-xl text-green-50 font-bold">
                 <span className="text-xl font-normal text-black">
                   Tình trạng:{' '}
                 </span>
                 {product.status}
-              </p>
-              <p className="text-xl text-blue-50 font-bold">
+              </p> */}
+              {/* <p className="text-xl text-blue-50 font-bold">
                 <span className="text-xl font-normal text-black">
                   Danh mục:{' '}
                 </span>
                 {result.brand}
-              </p>
+              </p> */}
               <div className="flex items-center">
                 <div className="flex items-center">
                   <p
@@ -130,11 +129,11 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <div className="w-full border-2 pt-5 pl-4 ml-52 flex flex-col gap-3">
+      {/* <div className="w-full border-2 pt-5 pl-4 ml-52 flex flex-col gap-3">
         {product.images.map(item => (
           <Image key={item} src={item} alt={item} width={500} height={500} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

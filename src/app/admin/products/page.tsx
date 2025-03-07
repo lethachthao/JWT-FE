@@ -1,7 +1,7 @@
 'use client';
 
 import CreateProduct from './components/CreateProduct';
-import ProductList from './components/productList';
+import ProductList from './components/ProductList';
 
 const ProductPage = () => {
   return (

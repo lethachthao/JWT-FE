@@ -4,5 +4,8 @@
     "next/typescript",
     "next",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }

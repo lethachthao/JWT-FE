@@ -3,6 +3,7 @@ import { Button, Form, Input, Modal, Upload, UploadFile } from 'antd';
 import { useState } from 'react';
 import { useCreateUser } from '../hooks/userApi';
 import { RcFile } from 'antd/es/upload';
+import { User } from '@/utils/type';
 
 interface UserFormProps {
   isOpen: boolean;
@@ -18,15 +19,13 @@ const UserForm: React.FC<UserFormProps> = ({ isOpen, onCancel }) => {
     setAvatarFile(fileList[0] || null); // Lưu avatar file vào state
   };
 
-  const handleFinish = (values: {
-    id: string;
-    name: string;
-    email: string;
-  }) => {
+  const handleFinish = (values: User) => {
     const userData = {
       id: values.id,
       name: values.name,
       email: values.email,
+      password: values.password,
+      role: values.role,
       avatar: avatarFile ? (avatarFile.originFileObj as RcFile) : null,
     };
 
@@ -77,6 +76,13 @@ const UserForm: React.FC<UserFormProps> = ({ isOpen, onCancel }) => {
           rules={[{ required: true, message: 'Please input your email!' }]}
         >
           <Input />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          label="Password"
+          rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+          <Input.Password />
         </Form.Item>
 
         {/* Trường upload avatar */}

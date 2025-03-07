@@ -5,9 +5,9 @@ export interface IPropsIcon {
 }
 
 export interface Product {
-  id: string;
+  id: any;
   name: string;
-  price: number;
+  price: any;
   description: string;
   image: string | File;
   category_id: number;
@@ -39,6 +39,8 @@ export interface User {
   name: string;
   email: string;
   avatar: RcFile;
+  role: any;
+  password: any;
 }
 
 export interface Banner {
