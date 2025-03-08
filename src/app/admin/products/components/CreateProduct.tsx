@@ -127,3 +127,6 @@ const CreateProduct: React.FC = () => {
 };
 
 export default CreateProduct;
+
+
+

@@ -143,7 +143,7 @@ const CategoryList = () => {
 
   return (
     <>
-      <Table dataSource={categories} columns={columns} />
+      <Table dataSource={categories} columns={columns} scroll={{ y: 600 }}/>
 
       <Modal
         title="Basic Modal"

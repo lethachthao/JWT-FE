@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen">
+      <body className="h-screen w-screen">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <QueryProvider>{children}</QueryProvider>

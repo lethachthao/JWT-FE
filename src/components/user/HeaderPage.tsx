@@ -36,7 +36,7 @@ const HeaderPage = () => {
         <Select defaultValue="Sản phẩm" options={options} className="h-10" />
         <Input placeholder="Nhập từ khóa cần tìm kiếm..." className="h-10 " />
       </Space.Compact>
-      <Button className="bg-blue-800 text-white p-5">Đăng nhập</Button>
+      <Button className="bg-blue-800 text-white p-5" onClick={()=> router.push('/login')}>Đăng nhập</Button>
       <div className="flex gap-2 cursor-pointer" onClick={handleOpenCart}>
         <div className="relative">
           <ICCart height={30} width={30} />

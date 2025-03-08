@@ -123,7 +123,7 @@ const UserList = () => {
 
   return (
     <div>
-      <Table dataSource={users} columns={columns} />
+      <Table dataSource={users} columns={columns} scroll={{ y: 600 }}/>
 
       {/* Modal Update User */}
       <Modal

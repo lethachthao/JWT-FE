@@ -6,7 +6,7 @@ const { Title } = Typography;
 
 const Signup = () => {
   return (
-    <div className="container">
+    <div className="">
       <div className="max-w-lg mx-auto p-4 mt-10 rounded-xl shadow bg-white">
         <div className="flex flex-col items-center">
           <Title level={3}>Đăng kí tài khoản</Title>
@@ -70,27 +70,8 @@ const Signup = () => {
           </Form.Item>
 
           <Form.Item
-            label="Ngày sinh"
-            name="birthday"
-            rules={[
-              {
-                required: true,
-                message: 'Vui lòng chọn tuổi bệnh nhân!',
-              },
-            ]}
-          >
-            <DatePicker format="DD/MM/YYYY" />
-          </Form.Item>
-
-          <Form.Item
             name="gender"
             label="Giới tính"
-            rules={[
-              {
-                required: true,
-                message: 'Vui lòng chọn giới bệnh nhân!',
-              },
-            ]}
           >
             <Radio.Group>
               <Radio value="male">Nam</Radio>

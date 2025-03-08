@@ -117,7 +117,7 @@ const BannerList = () => {
   ];
   return (
     <div>
-      <Table dataSource={banners} columns={columns} />
+      <Table dataSource={banners} columns={columns} scroll={{ y: 600 }}/>
 
       <Modal
         title="Basic Modal"

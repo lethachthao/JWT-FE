@@ -42,7 +42,7 @@ const ProductList = () => {
   ];
   return (
     <div>
-      <Table dataSource={products} columns={columns} loading={isPending} />;
+      <Table scroll={{ y: 600 }} dataSource={products} columns={columns} loading={isPending} />
     </div>
   );
 };

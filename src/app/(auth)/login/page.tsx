@@ -1,6 +1,6 @@
 'use client';
 
-import { useLogin } from '@/components/auth/hooks/useAuth';
+import { useLogin } from '@/app/(auth)/login/hooks/useAuth';
 import { Button, Form, Input, message } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -13,7 +13,7 @@ const LoginPage = () => {
   const handleSubmit = (values: { email: string; password: string }) => {
     loginMutation.mutate(values, {
       onSuccess: () => {
-        route.push('/admin/products');
+        route.push('/admin/users');
       },
       onError: () => {
         message.error('Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin!');
@@ -22,7 +22,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen">
       <div className="max-w-lg w-full p-6 rounded-xl shadow bg-white">
         <h2 className="text-center text-2xl font-semibold mb-6">Đăng nhập</h2>
         <Form
@@ -55,7 +55,7 @@ const LoginPage = () => {
 
           <Form.Item className="text-center">
             <span>Bạn chưa có tài khoản? </span>
-            <Link href="/signup" className="text-blue-500 hover:underline">
+            <Link href="/register" className="text-blue-500 hover:underline">
               Đăng ký ngay
             </Link>
           </Form.Item>
@@ -64,7 +64,7 @@ const LoginPage = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="bg-blue-500 hover:bg-blue-600 w-full"
+              className="bg-blue-200 hover:bg-blue-400 w-full"
               loading={loginMutation.isPending}
             >
               Đăng nhập
