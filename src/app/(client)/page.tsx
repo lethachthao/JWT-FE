@@ -1,7 +1,6 @@
 'use client';
 
 import { dataProduct } from '@/mockData/dataProduct';
-import Slider from '@/components/user/Slider';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Import đúng cách
 import 'swiper/css';
@@ -14,11 +13,12 @@ import Menucontent from '@/components/user/MenuContent';
 import Link from 'next/link';
 import NewAndGuide from '@/components/user/NewsAndGuide';
 import ListNewProduct from './components/ListNewProducts';
+import BannerSlider from '@/components/user/Slider';
 
 const Home = () => {
   return (
     <div className="gap-5 flex flex-col">
-      <Slider />
+      <BannerSlider />
       <div className="w-[1200px] max-w-full mx-auto flex flex-col gap-6">
         <ListNewProduct />
         {/* <LatestNews />
