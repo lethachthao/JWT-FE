@@ -18,12 +18,14 @@ const UserList = () => {
 
   useEffect(() => {
     if (selectedUser) {
-      form.setFieldsValue({
-        name: selectedUser.name,
-        email: selectedUser.email,
-      });
+      form.setFieldsValue(
+        Object.fromEntries(
+          Object.entries(selectedUser).filter(([_, value]) => value !== undefined)
+        )
+      );
     }
   }, [selectedUser, form]);
+
 
   // Xử lý khi chọn file upload
   const handleFileChange = ({ fileList }: { fileList: UploadFile[] }) => {
@@ -44,26 +46,26 @@ const UserList = () => {
     form.resetFields();
   };
 
-  // Xử lý cập nhật user
-  const handleUpdate = (values: { name: string; email: string }) => {
+  const handleUpdate = (values: User) => {
     if (!selectedUser) return;
 
     const formData = new FormData();
-    formData.append('name', values.name);
-    formData.append('email', values.email);
+
+    // Thêm tất cả thông tin user vào formData
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        formData.append(key, value instanceof File ? value : String(value));
+      }
+    });
+
+    // Thêm avatar nếu có
     if (avatarFile?.originFileObj) {
       formData.append('avatar', avatarFile.originFileObj);
     }
 
-    // Chuyển id thành string nếu cần
-    const userId = String(selectedUser.id); // Chuyển id sang kiểu string
-
-    mutate({
-      id: userId,
-      user: { name: values.name, email: values.email },
-      avatar: avatarFile?.originFileObj || null,
-    });
+    mutate({ id: String(selectedUser.id), ...values });
   };
+
 
   // Xử lý xóa category
   const handleDelete = async (id: string) => {
@@ -94,6 +96,16 @@ const UserList = () => {
       key: 'name',
     },
     {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Phone Number',
+      dataIndex: 'phone_number',
+      key: 'phone_number',
+    },
+    {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
@@ -102,7 +114,7 @@ const UserList = () => {
       title: 'Action',
       key: 'action',
       render: (_: string, record: User) => (
-        <div>
+        <div className='flex gap-2 '>
           <Button type="primary" onClick={() => handleEdit(record)}>
             Edit
           </Button>
@@ -110,6 +122,7 @@ const UserList = () => {
             onClick={() => handleDelete(record.id)}
             loading={isDeleting}
             disabled={isDeleting}
+            danger
           >
             Delete
           </Button>
@@ -123,7 +136,7 @@ const UserList = () => {
 
   return (
     <div>
-      <Table dataSource={users} columns={columns} scroll={{ y: 600 }}/>
+      <Table dataSource={users} columns={columns} scroll={{ y: 600 }} />
 
       {/* Modal Update User */}
       <Modal
@@ -165,6 +178,20 @@ const UserList = () => {
             name="name"
             label="Name"
             rules={[{ required: true, message: 'Please enter name' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="phone_number"
+            label="Phone Number"
+            rules={[{ required: true, message: 'Please input your Phone Number!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="address"
+            label="Address"
+            rules={[{ required: true, message: 'Please input your Address!' }]}
           >
             <Input />
           </Form.Item>

@@ -41,10 +41,17 @@ export interface User {
   avatar: RcFile;
   role: any;
   password: any;
+  phone_number: any;
+  address: any
 }
 
 export interface Banner {
   id: string;
   image: string | File;
   title: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  role: string; // Thêm role vào đây
 }

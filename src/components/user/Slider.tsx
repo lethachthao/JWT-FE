@@ -22,6 +22,7 @@ const SliderBanner = () => {
     autoplay: true, // Bật tự động chạy
     autoplaySpeed: 3000, // Thời gian chuyển đổi (ms)
     arrows: true,
+    modules: [Navigation, Autoplay]
   };
   
   return (

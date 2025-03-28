@@ -30,28 +30,26 @@ export const createUser = async (user: User): Promise<User> => {
   return response.data;
 };
 
-export const updateUser = async (
-  id: string,
-  user: { name: string; email: string },
-  avatar: File | null
-): Promise<User> => {
+export const updateUser = async (id: string, data: Partial<User>): Promise<User> => {
   const formData = new FormData();
-  formData.append('name', user.name);
-  formData.append('email', user.email);
 
-  if (avatar) {
-    formData.append('avatar', avatar);
-  }
-
-  const response = await apiClient.post(
-    `/users/${id}?_method=PUT`, // Sử dụng _method=PUT cho form-data
-    formData,
-    {
-      headers: { 'Content-Type': 'multipart/form-data' },
+  // Thêm tất cả thông tin người dùng vào formData
+  Object.entries(data).forEach(([key, value]) => {
+    if (value) {
+      formData.append(key, value instanceof File ? value : String(value));
     }
+  });
+
+  // Gửi request cập nhật user
+  const response = await apiClient.post(
+    `/users/${id}?_method=PUT`,
+    formData,
+    { headers: { 'Content-Type': 'multipart/form-data' } }
   );
+
   return response.data;
 };
+
 
 // Hàm gọi API để xóa người dùng
 export const deleteUser = async (id: string): Promise<void> => {

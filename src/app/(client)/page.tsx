@@ -17,7 +17,7 @@ import BannerSlider from '@/components/user/Slider';
 
 const Home = () => {
   return (
-    <div className="gap-5 flex flex-col">
+    <div className="gap-5 flex flex-col mt-5">
       <BannerSlider />
       <div className="w-[1200px] max-w-full mx-auto flex flex-col gap-6">
         <ListNewProduct />

@@ -26,6 +26,8 @@ const UserForm: React.FC<UserFormProps> = ({ isOpen, onCancel }) => {
       email: values.email,
       password: values.password,
       role: values.role,
+      address: values.address,
+      phone_number: values.phone_number,
       avatar: avatarFile ? (avatarFile.originFileObj as RcFile) : null,
     };
 
@@ -74,6 +76,20 @@ const UserForm: React.FC<UserFormProps> = ({ isOpen, onCancel }) => {
           name="email"
           label="Email"
           rules={[{ required: true, message: 'Please input your email!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="phone_number"
+          label="Phone Number"
+          rules={[{ required: true, message: 'Please input your Phone Number!' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="address"
+          label="Address"
+          rules={[{ required: true, message: 'Please input your Address!' }]}
         >
           <Input />
         </Form.Item>

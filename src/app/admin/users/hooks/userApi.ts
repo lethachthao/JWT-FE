@@ -34,17 +34,13 @@ export const useUpdateUser = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (userData: {
-      id: string;
-      user: { name: string; email: string };
-      avatar: File | null;
-    }) => updateUser(userData.id, userData.user, userData.avatar),
+    mutationFn: ({ id, ...data }: User) => updateUser(id, data),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['users'] });
       message.success('✅ Cập nhật user thành công!');
     },
-    onError: error => {
-      console.error(' Lỗi khi cập nhật user:', error);
+    onError: (error) => {
+      console.error('Lỗi khi cập nhật user:', error);
       message.error('Lỗi khi cập nhật user, vui lòng thử lại.');
     },
   });

@@ -113,7 +113,7 @@ const CartPage = () => {
   ];
 
   return (
-    <div className="max-w-[1200px] mx-auto">
+    <div className="max-w-[1200px] mx-auto mb-20 mt-10">
       <Table<CartItems>
         columns={columns}
         dataSource={groupedCartItems}

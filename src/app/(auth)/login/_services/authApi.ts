@@ -1,11 +1,8 @@
 import apiClient from '@/utils/apiClient';
-import { User } from '@/utils/type';
+import { LoginResponse, User } from '@/utils/type';
 import { AxiosResponse } from 'axios';
 
-interface LoginResponse {
-  token: string;
-  role: string; // Thêm role vào đây
-}
+
 
 export const loginUser = async (
   email: string,

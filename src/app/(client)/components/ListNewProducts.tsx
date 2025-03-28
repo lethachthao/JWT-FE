@@ -8,15 +8,13 @@ import Image from 'next/image';
 const ListNewProduct = () => {
   const { data: products, isPending } = useListProducts();
 
-  console.log(products);
-
   if (isPending) return <p>Loading...</p>;
   if (!products || products.length === 0) return <p>Không có sản phẩm mới</p>;
   return (
     <ProductDisplay title="Hàng mới về">
       <div className="">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
+          // modules={[Navigation, Autoplay]}
           spaceBetween={50}
           slidesPerView={4}
           navigation
@@ -32,8 +30,8 @@ const ListNewProduct = () => {
                   <Image
                     src={typeof product.image === 'string' ? product.image : ''}
                     alt={product.name}
-                    width={299}
-                    height={299}
+                    width={200}
+                    height={200}
                     unoptimized={true}
                     className="rounded-t-lg border"
                   />
