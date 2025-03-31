@@ -14,11 +14,11 @@ const ProductDisplay: React.FC<IProp> = props => {
     <div className="flex flex-col gap-3">
       <div className="flex">
         <p
-          className={`bg-red-700 whitespace-nowrap text-white font-bold p-3 text-base rounded-tl-2xl`}
+          className={`bg-green-50 whitespace-nowrap text-white font-bold p-3 text-base rounded-tl-2xl`}
         >
           {props.title}
         </p>
-        <p className={`bg-red-600 w-full rounded-tr-2xl`}></p>
+        <p className={`bg-green-100 w-full rounded-tr-2xl`}></p>
       </div>
       {props.children}
     </div>

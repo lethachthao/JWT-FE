@@ -57,6 +57,17 @@ span.ant-form-item-required {
 .ant-modal {
   top: 17px !important;
 }
+
 .ant-tooltip {
   display: none;
+}
+
+ol {
+  list-style-type: decimal;
+  /* Đảm bảo danh sách hiển thị số */
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
 }

@@ -62,11 +62,6 @@ const ProductList = () => {
       key: 'category',
     },
     {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
-    {
       title: 'Image',
       dataIndex: 'image',
       key: 'image',

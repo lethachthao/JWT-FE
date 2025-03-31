@@ -6,20 +6,20 @@ import { ICYoutube } from '@/icon/ICYoutube';
 const Footer = () => {
   return (
     <div className="flex flex-col gap-4">
-      <div className="bg-yellow-400 grid grid-cols-4 justify-between  px-32">
-        <div className="py-3 flex flex-col gap-2 items-center border-r border-black">
+      <div className="bg-green-100 grid grid-cols-4 justify-between  px-32">
+        <div className="py-3 flex flex-col gap-2 items-center border-r border-white">
           <p className="font-bold">Giao hàng siêu tốc</p>
           <p>Thanh toán khi nhận hàng</p>
         </div>
-        <div className="py-3 flex flex-col gap-2 items-center border-r border-black">
+        <div className="py-3 flex flex-col gap-2 items-center border-r border-white">
           <p className="font-bold">MUA HÀNG TÍCH LŨY ĐIỂM</p>
           <p>Giảm giá khi mua hàng</p>
         </div>
-        <div className="py-3 flex flex-col gap-2 items-center border-r border-black">
+        <div className="py-3 flex flex-col gap-2 items-center border-r border-white">
           <p className="font-bold">SẢN PHẨM</p>
           <p>CHÍNH HÃNG</p>
         </div>
-        <div className="py-3 flex flex-col gap-2 items-center border-r border-black">
+        <div className="py-3 flex flex-col gap-2 items-center">
           <p className="font-bold">HỖ TRỢ TRỰC TUYẾN</p>
           <p>090.292.3333</p>
         </div>

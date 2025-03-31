@@ -17,6 +17,7 @@ const config: Config = {
         'blue-100': '#1178f2',
         'red-50': '#dc2535',
         'green-50': '#11985e',
+        'green-100': '#6abd45',
         'blue-200': '#06b6d4',
       },
     },

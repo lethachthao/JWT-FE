@@ -6,6 +6,9 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/slices/cartSlice';
 import { Button, Image, message } from 'antd';
 import { useListProducts } from '../../hooks/useProducts';
+import ImageUploader from "quill-image-uploader";
+import { Quill } from 'react-quill';
+
 
 const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -13,6 +16,39 @@ const ProductDetail = () => {
   const { data: products, isPending } = useListProducts();
   const dispatch = useDispatch();
   const { id } = useParams(); // Lấy ID từ URL
+
+  const uploadImage = async (file: File): Promise<string> => {
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const response = await fetch("https://your-api.com/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || "Upload ảnh thất bại!");
+    return data.imageUrl; // URL ảnh đã upload
+  };
+
+
+  // Đăng ký module upload ảnh vào Quill
+  Quill.register("modules/imageUploader", ImageUploader);
+
+  const modules = {
+    toolbar: [
+      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["bold", "italic", "underline"],
+      [{ align: [] }],
+      ["image"], // Cho phép chèn ảnh
+    ],
+    imageUploader: {
+      upload: async (file: File) => {
+        return await uploadImage(file);
+      },
+    },
+  };
 
   // Nếu đang tải dữ liệu
   if (isPending) {
@@ -26,6 +62,7 @@ const ProductDetail = () => {
 
   // Tìm sản phẩm theo ID
   const product = products.find(product => product.id === Number(id));
+  console.log(product);
 
   if (!product) {
     return <p>Sản phẩm không tồn tại</p>;
@@ -56,8 +93,8 @@ const ProductDetail = () => {
     <div className="gap-3 flex flex-col w-[1200px] max-w-full mx-auto">
       <div className="flex mt-3 gap-5">
         <div className="w-[16%]">
-          <Menucontent />
-          {contextHolder}
+          {/* <Menucontent />
+          {contextHolder} */}
         </div>
         <div className="w-[84%]">
           <div className="flex gap-5 w-full">
@@ -80,7 +117,6 @@ const ProductDetail = () => {
               </p>
               <div>
                 <p className="text-xl font-bold">{product.name}</p>
-                <p className="text-xl font-normal">{product.description}</p>
               </div>
               <p className="text-xl text-red-50 font-bold">
                 <span className="text-xl font-normal text-black">
@@ -103,23 +139,23 @@ const ProductDetail = () => {
               <div className="flex items-center">
                 <div className="flex items-center">
                   <p
-                    className="px-8 font-bold flex items-center py-2 text-3xl bg-gray-300 cursor-pointer"
+                    className="px-8 font-normal flex items-center py-2 text-xl bg-gray-100 cursor-pointer"
                     onClick={handleDecrease}
                   >
                     -
                   </p>
-                  <p className="px-8 py-2 border font-bold text-xl flex items-center border-gray-300">
+                  <p className="px-8 py-2 border font-normal text-xl flex items-center border-gray-300">
                     {quantity}
                   </p>
                   <p
-                    className="px-8 py-2 font-bold text-3xl flex items-center bg-gray-300 cursor-pointer"
+                    className="px-8 py-2 font-normal text-xl flex items-center bg-gray-100 cursor-pointer"
                     onClick={handleIncrease}
                   >
                     +
                   </p>
                 </div>
                 <Button
-                  className="text-lg ml-4 flex items-center px-5 py-7 rounded-none bg-red-50 text-white font-base"
+                  className="text-lg ml-4 flex items-center px-5 py-7 rounded-none bg-[#d26e4b] text-white font-base"
                   onClick={handleAddToCart}
                 >
                   THÊM VÀO GIỎ
@@ -129,11 +165,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      {/* <div className="w-full border-2 pt-5 pl-4 ml-52 flex flex-col gap-3">
-        {product.images.map(item => (
-          <Image key={item} src={item} alt={item} width={500} height={500} />
-        ))}
-      </div> */}
+      <div dangerouslySetInnerHTML={{ __html: product.description }} />
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Menucontent = () => {
 
   return (
     <div>
-      <p className="bg-red-600 rounded-t-lg text-white p-[6px] font-bold w-52">
+      <p className="bg-green-50 rounded-t-lg text-white p-[6px] font-bold w-52">
         Danh Mục
       </p>
       {dataProduct.map(item => (

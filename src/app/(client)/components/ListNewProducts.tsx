@@ -38,7 +38,7 @@ const ListNewProduct = () => {
                   <p className="border h-16 text-sm px-3 w-full font-bold overflow-hidden text-ellipsis flex justify-center items-center">
                     {product.name}
                   </p>
-                  <p className="text-red-600 font-bold text-center border py-1 w-full">
+                  <p className="text-green-100 font-bold text-center border py-1 w-full">
                     {product.price}đ
                   </p>
                 </div>

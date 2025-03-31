@@ -7,8 +7,8 @@ import { useState } from 'react';
 const MenuPage = () => {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
   return (
-    <div className="flex font-bold gap-5 px-24 bg-gray-300 items-center relative">
-      <p className="hover:bg-gray-400 px-3 py-1 cursor-pointer">Trang chủ</p>
+    <div className="flex font-bold gap-5 px-24 items-center relative">
+      <p className="hover:bg-gray-400 px-3 py-1 cursor-pointer text-gray-300">Trang chủ</p>
       <div className=" flex">
         {dataProduct.map(item => (
           <div
@@ -20,7 +20,7 @@ const MenuPage = () => {
               {item.brand}
             </p>
             {hoveredBrand === item.brand && (
-              <div className="px-5 absolute left-0 bg-gray-500 text-black shadow-md rounded-md z-10 w-screen ">
+              <div className="px-5 absolute left-0 bg-gray-500 text-gray-300 shadow-md rounded-md z-10 w-screen ">
                 <ul className="py-2 flex space-x-4 justify-center">
                   {item.products.map((product, index) => (
                     <li

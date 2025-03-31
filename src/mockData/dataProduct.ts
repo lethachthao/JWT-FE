@@ -2,7 +2,7 @@ export const dataProduct = [
   {
     brand: 'Sony',
     logo: '/images/logo1.png',
-    banner: '/images/banner1.gif',
+    banner: '/images/BANNER_TCT_8.png',
     products: [
       {
         id: 1,
@@ -10,7 +10,7 @@ export const dataProduct = [
         price: 100,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product1.jpg', // Truy cập thuộc tính src
+        image: '/test_image/dau-massage-gung-247x247.png', // Truy cập thuộc tính src
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -30,7 +30,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product2.jpg',
+        image: '/test_image/dau-nong-300x300-1-247x247.png',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -50,7 +50,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product3.jpg',
+        image: '/test_image/muoi-ngam-chan-247x247 (1).png',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -70,7 +70,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product4.jpg',
+        image: '/test_image/Muoi-tam-be-avata-min-247x247.png',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -89,7 +89,7 @@ export const dataProduct = [
   {
     brand: 'LG',
     logo: '/images/logo2.jpg',
-    banner: '/images/banner2.gif',
+    banner: '/images/banner-1-fix.png',
     products: [
       {
         id: 5,
@@ -97,7 +97,7 @@ export const dataProduct = [
         price: 100,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product1.jpg', // Truy cập thuộc tính src
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -117,7 +117,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product2.jpg',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -137,7 +137,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product3.jpg',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -157,7 +157,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product4.jpg',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -176,7 +176,7 @@ export const dataProduct = [
   {
     brand: 'SAMSUNG',
     logo: '/images/logo3.png',
-    banner: '/images/banner10.gif',
+    banner: '/images/banner.jpg',
     products: [
       {
         id: 9,
@@ -184,7 +184,7 @@ export const dataProduct = [
         price: 100,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product4.jpg', // Truy cập thuộc tính src
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -204,7 +204,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/product1.jpg',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -224,7 +224,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/a3.png',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1
@@ -244,7 +244,7 @@ export const dataProduct = [
         price: 200,
         description:
           'Mô hình Pokemon Clodsire - Takara Tomy Sản phẩm nhựa cao cấp với độ sắc nét cao Sản xuất bởi Takara Tomy Nhật Bản hãng An toàn với trẻ em',
-        image: '/images/a3.png',
+        image: '/test_image/tinh-dau-tram-gio-1-1-247x247.jpg',
         images: [
           '/images/product1.jpg', // Ảnh đại diện
           '/images/product2.jpg', // Ảnh phụ 1

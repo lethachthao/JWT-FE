@@ -5,6 +5,10 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Category, Product } from '@/utils/type';
 import { useCreateProduct } from '../hooks/useProducts';
 import { useCategories } from '../../categories/hooks/categoryApi';
+import "react-quill/dist/quill.snow.css"; // Import CSS của Quill
+import dynamic from 'next/dynamic';
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const CreateProduct: React.FC = () => {
   const { mutate, isPending } = useCreateProduct();
@@ -13,6 +17,7 @@ const CreateProduct: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // Tách logo và banner thành 2 state riêng biệt
   const [imageFile, setImageFile] = useState<UploadFile | null>(null);
+  const [description, setDescription] = useState("");
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -23,7 +28,7 @@ const CreateProduct: React.FC = () => {
       id: values.id,
       name: values.name,
       price: values.price,
-      description: values.description,
+      description: description,
       category_id: values.category_id,
       image: imageFile?.originFileObj || '',
     };
@@ -32,7 +37,7 @@ const CreateProduct: React.FC = () => {
     mutate(userData, {
       onSuccess: () => {
         form.resetFields(); // Reset form sau khi thành công
-        // setLogoFile(null);
+        setDescription("");
       },
     });
   };
@@ -55,6 +60,7 @@ const CreateProduct: React.FC = () => {
         open={isModalOpen}
         onCancel={handleCancel}
         footer={null}
+        width={1000}
       >
         <Form
           form={form}
@@ -79,13 +85,10 @@ const CreateProduct: React.FC = () => {
             <Input type="number" />
           </Form.Item>
           <Form.Item
-            name="description"
-            label="Mô tả"
-            rules={[
-              { required: true, message: 'Vui lòng nhập mô tả sản phẩm!' },
-            ]}
+            label="Mô tả sản phẩm"
+            rules={[{ required: true, message: "Vui lòng nhập mô tả!" }]}
           >
-            <Input.TextArea />
+            <ReactQuill value={description} onChange={setDescription} />
           </Form.Item>
 
           <Form.Item

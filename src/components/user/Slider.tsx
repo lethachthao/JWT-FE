@@ -24,9 +24,9 @@ const SliderBanner = () => {
     arrows: true,
     modules: [Navigation, Autoplay]
   };
-  
+
   return (
-    <div className="px-20">
+    <div className="px-20 max-w-[1900px] max-h-[800px]">
       <Slider {...settings}>
         {DataImgBanner.map((item) => (
           <div key={item.id}>
@@ -35,7 +35,7 @@ const SliderBanner = () => {
               alt="Banner"
               priority={true}
               width={1920}
-              height={1080}
+              height={500}
               className="rounded-[30px] w-full"
             />
           </div>
